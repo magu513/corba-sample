@@ -1,14 +1,27 @@
 # README
 
-**保険をかけておきます**
-突貫工事のため、パッケージなど雑です。  
-一旦、REST to CORBAをするようにしています。
+パッケージなど雑です。  
+一旦、REST to CORBAをするようにしています。  
 
 ## 実行
+
+### 事前
 アプリケーションを実行する前にorbdを起動すること
 ```sh
 orbd -ORBInitialPort 1050 -ORBInitialHost localhost
 ```
+
+### 起動
+Embedded Tomcatを使用しているため、mainクラスを実行すればサンプルを確認できます。
+
+## TODO
+
+- RESTをServletでの実装からjax-rsへ変更
+  - 余裕があれば
+- CORBAサーバを直接起動からEJBで呼び出すよう変更
+- リフレクションとアノテーションを使用し、クラスの変換処理を実装
+- IDLファイルをresources配下へ
+  - 合わせたほうが分かりやすいため。余裕があれば。
 
 ## 資料
 
