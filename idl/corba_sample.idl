@@ -1,0 +1,10 @@
+module corba { // package相当
+    interface Hello { // class相当
+        struct Argument {
+            string name;
+        };
+        string sayHello(in Argument arg); // メソッド相当
+        string transmitSayHello(in Argument arg);
+        oneway void shutdown();
+    };
+};

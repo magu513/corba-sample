@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/idl/sample/Hello.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/idl/sample/HelloHelper.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/idl/sample/HelloHolder.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/idl/sample/HelloOperations.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/idl/sample/HelloPOA.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/idl/sample/_HelloStub.java" charset="UTF-8" />
+  </component>
+</project>

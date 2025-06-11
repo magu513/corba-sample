@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // embedded tomcat起動用
+    implementation 'org.apache.tomcat.embed:tomcat-embed-core:8.5.99'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:8.5.99'
+    // サーブレット
+    implementation 'javax.servlet:javax.servlet-api:3.1.0'
+    // jax-rs(未使用)
+    implementation 'org.apache.cxf:cxf-rt-frontend-jaxrs:3.1.12'
+    // JSON変換用
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.19.0'
+    // HTTPクライアント
+    implementation 'org.apache.httpcomponents:httpclient:4.5.13'
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.register('idlCompile') {
+    doLast {
+        // パスの指定が環境依存
+        // TODO なんか対応を考えるなり調べる
+        def targetDir = "${rootDir}\\idl"
+        def result = providers.exec {
+            // 生成したファイルの文字コードがsjisとなる。
+            // 問題はないと思うが、文字化けするためsjisで読み込むなり、utf8に変換するなり
+            commandLine 'idlj', '-fall', '-td', targetDir, "${targetDir}\\corba_sample.idl"
+        }
+        if (result.standardOutput != null) {
+            print result.standardOutput.asText.get()
+        }
+        if (result.standardError != null) {
+            print result.standardError.asText.get()
+        }
+    }
+}
