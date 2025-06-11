@@ -6,7 +6,7 @@ import org.apache.catalina.startup.Tomcat;
 import java.nio.file.Paths;
 
 public class TomcatServer implements Runnable {
-    private Tomcat tomcat;
+    private final Tomcat tomcat;
     private int port = 8080;
     private String rootPath = "/";
 

@@ -12,7 +12,7 @@ package sample.corba;
 // package6x?
 abstract public class HelloHelper
 {
-  private static String  _id = "IDL:corba/Hello:1.0";
+  private static final String  _id = "IDL:corba/Hello:1.0";
 
   public static void insert (org.omg.CORBA.Any a, sample.corba.Hello that)
   {
@@ -49,7 +49,7 @@ abstract public class HelloHelper
 
   public static void write (org.omg.CORBA.portable.OutputStream ostream, sample.corba.Hello value)
   {
-    ostream.write_Object ((org.omg.CORBA.Object) value);
+    ostream.write_Object (value);
   }
 
   public static sample.corba.Hello narrow (org.omg.CORBA.Object obj)

@@ -10,7 +10,7 @@ package sample.corba.HelloPackage;
 
 abstract public class ArgumentHelper
 {
-  private static String  _id = "IDL:corba/Hello/Argument:1.0";
+  private static final String  _id = "IDL:corba/Hello/Argument:1.0";
 
   public static void insert (org.omg.CORBA.Any a, sample.corba.HelloPackage.Argument that)
   {

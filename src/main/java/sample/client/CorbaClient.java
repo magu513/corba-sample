@@ -8,11 +8,10 @@ import org.omg.CosNaming.NamingContextPackage.CannotProceed;
 import org.omg.CosNaming.NamingContextPackage.NotFound;
 import sample.corba.Hello;
 import sample.corba.HelloHelper;
-import sample.corba.impl.HelloImpl;
 
 public class CorbaClient {
-    private ORB orb;
-    private NamingContextExt ncRef;
+    private final ORB orb;
+    private final NamingContextExt ncRef;
     public CorbaClient() {
         try {
             // TODO 外出ししたい

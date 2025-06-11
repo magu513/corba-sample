@@ -16,7 +16,7 @@ public abstract class HelloPOA extends org.omg.PortableServer.Servant
 
   // Constructors
 
-  private static java.util.Hashtable _methods = new java.util.Hashtable ();
+  private static final java.util.Hashtable _methods = new java.util.Hashtable ();
   static
   {
     _methods.put ("sayHello", new Integer (0));
@@ -72,12 +72,12 @@ public abstract class HelloPOA extends org.omg.PortableServer.Servant
   } // _invoke
 
   // Type-specific CORBA::Object operations
-  private static String[] __ids = {
+  private static final String[] __ids = {
     "IDL:corba/Hello:1.0"};
 
   public String[] _all_interfaces (org.omg.PortableServer.POA poa, byte[] objectId)
   {
-    return (String[])__ids.clone ();
+    return __ids.clone ();
   }
 
   public Hello _this() 

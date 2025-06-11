@@ -1,7 +1,5 @@
 package sample.web.servlet;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.json.JsonMapper;
 import sample.client.CorbaClient;
 import sample.corba.Hello;
 import sample.corba.HelloPackage.Argument;
@@ -19,7 +17,7 @@ import java.util.stream.Collectors;
 // 一旦Servletで実装
 // RestAPIを簡単に使うのであれば、jax-rsのほうがいいかも
 public class HelloServlet extends HttpServlet {
-    private CorbaClient client;
+    private final CorbaClient client;
     public HelloServlet() {
         this.client = new CorbaClient();
     }

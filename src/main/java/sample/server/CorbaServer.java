@@ -10,8 +10,6 @@ import sample.corba.Hello;
 import sample.corba.HelloHelper;
 import sample.corba.impl.HelloImpl;
 
-import java.util.Properties;
-
 public class CorbaServer implements Runnable {
     public void start() {
         try {
@@ -25,7 +23,7 @@ public class CorbaServer implements Runnable {
 //            properties.setProperty("CodeSetEncoding", "UTF8=UTF16");
             ORB orb = ORB.init(args, null);
             POA rootpoa = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));
-            rootpoa.the_POAManager().activate();;
+            rootpoa.the_POAManager().activate();
 
             HelloImpl helloImpl = new HelloImpl(orb);
 
@@ -35,7 +33,7 @@ public class CorbaServer implements Runnable {
             NamingContextExt ncRef = NamingContextExtHelper.narrow(objRef);
 
             String name = "Hello";
-            NameComponent path[] = ncRef.to_name(name);
+            NameComponent[] path = ncRef.to_name(name);
             ncRef.rebind(path, href);
             orb.run();
         } catch (Exception e) {

@@ -61,7 +61,6 @@ public class _HelloStub extends org.omg.CORBA.portable.ObjectImpl implements sam
             try {
                 org.omg.CORBA.portable.OutputStream $out = _request ("shutdown", false);
                 $in = _invoke ($out);
-                return;
             } catch (org.omg.CORBA.portable.ApplicationException $ex) {
                 $in = $ex.getInputStream ();
                 String _id = $ex.getId ();
@@ -74,12 +73,12 @@ public class _HelloStub extends org.omg.CORBA.portable.ObjectImpl implements sam
   } // shutdown
 
   // Type-specific CORBA::Object operations
-  private static String[] __ids = {
+  private static final String[] __ids = {
     "IDL:corba/Hello:1.0"};
 
   public String[] _ids ()
   {
-    return (String[])__ids.clone ();
+    return __ids.clone ();
   }
 
   private void readObject (java.io.ObjectInputStream s) throws java.io.IOException

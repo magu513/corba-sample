@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HelloImpl extends HelloPOA {
-    private ORB orb;
+    private final ORB orb;
 
     public HelloImpl(ORB orb) {
         this.orb = orb;

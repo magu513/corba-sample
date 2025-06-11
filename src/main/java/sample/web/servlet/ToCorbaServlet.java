@@ -1,7 +1,5 @@
 package sample.web.servlet;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.json.JsonMapper;
 import sample.client.CorbaClient;
 import sample.corba.Hello;
 import sample.corba.HelloPackage.Argument;
@@ -17,7 +15,7 @@ import java.io.IOException;
 import java.util.stream.Collectors;
 
 public class ToCorbaServlet extends HttpServlet {
-    private CorbaClient client;
+    private final CorbaClient client;
     public ToCorbaServlet() {
         this.client = new CorbaClient();
     }
