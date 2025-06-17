@@ -22,7 +22,7 @@ public class TomcatServer implements Runnable {
         this.rootPath = rootPath;
     }
 
-    public String toAbsolutePath(String path) {
+    private String toAbsolutePath(String path) {
         return Paths.get(path).toAbsolutePath().toString();
     }
 
@@ -40,5 +40,11 @@ public class TomcatServer implements Runnable {
         } catch (LifecycleException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        tomcat.stop();
+        super.finalize();
     }
 }

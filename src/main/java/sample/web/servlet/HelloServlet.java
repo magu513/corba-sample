@@ -1,8 +1,8 @@
 package sample.web.servlet;
 
 import sample.client.CorbaClient;
-import sample.corba.Hello;
-import sample.corba.HelloPackage.Argument;
+import sample.model.corba.Hello;
+import sample.model.corba.HelloPackage.Argument;
 import sample.model.servlet.HelloRequest;
 import sample.model.servlet.HelloResponse;
 import sample.util.JSONUtil;
@@ -18,9 +18,11 @@ import java.util.stream.Collectors;
 // RestAPIを簡単に使うのであれば、jax-rsのほうがいいかも
 public class HelloServlet extends HttpServlet {
     private final CorbaClient client;
+
     public HelloServlet() {
         this.client = new CorbaClient();
     }
+
     // CORBAでの呼び出しサンプル用
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

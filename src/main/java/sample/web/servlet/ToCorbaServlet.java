@@ -1,8 +1,8 @@
 package sample.web.servlet;
 
 import sample.client.CorbaClient;
-import sample.corba.Hello;
-import sample.corba.HelloPackage.Argument;
+import sample.model.corba.Hello;
+import sample.model.corba.HelloPackage.Argument;
 import sample.model.servlet.HelloRequest;
 import sample.model.servlet.HelloResponse;
 import sample.util.JSONUtil;
@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 
 public class ToCorbaServlet extends HttpServlet {
     private final CorbaClient client;
+
     public ToCorbaServlet() {
         this.client = new CorbaClient();
     }

@@ -15,7 +15,6 @@ public class Main {
         tomcatServer.setPort(58080);
         tomcatServer.setRootPath("/");
         executorService.submit(tomcatServer);
-        // FIXME EJBで実装すればよかった
         CorbaServer corbaServer = new CorbaServer();
 
         executorService.submit(corbaServer);

@@ -6,14 +6,16 @@ import org.omg.CosNaming.NamingContextExt;
 import org.omg.CosNaming.NamingContextExtHelper;
 import org.omg.PortableServer.POA;
 import org.omg.PortableServer.POAHelper;
-import sample.corba.Hello;
-import sample.corba.HelloHelper;
-import sample.corba.impl.HelloImpl;
+import sample.model.corba.Hello;
+import sample.model.corba.HelloHelper;
+import sample.model.corba.impl.HelloImpl;
 
 public class CorbaServer implements Runnable {
+    private ORB orb;
+
     public void start() {
         try {
-            String[] args = new String[] {
+            String[] args = new String[]{
                     "-ORBInitialPort", "1050",
                     // 文字コード指定が動作しているか分からない
                     // 日本語のレスポンスを返そうとして失敗した。
@@ -21,7 +23,7 @@ public class CorbaServer implements Runnable {
             };
 //            Properties properties = new Properties();
 //            properties.setProperty("CodeSetEncoding", "UTF8=UTF16");
-            ORB orb = ORB.init(args, null);
+            orb = ORB.init(args, null);
             POA rootpoa = POAHelper.narrow(orb.resolve_initial_references("RootPOA"));
             rootpoa.the_POAManager().activate();
 
@@ -44,5 +46,12 @@ public class CorbaServer implements Runnable {
     @Override
     public void run() {
         this.start();
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        // 実際の動作時には終了を待つほうが安全
+        orb.shutdown(false);
+        super.finalize();
     }
 }

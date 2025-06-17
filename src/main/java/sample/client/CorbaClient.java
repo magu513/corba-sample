@@ -6,16 +6,17 @@ import org.omg.CosNaming.NamingContextExt;
 import org.omg.CosNaming.NamingContextExtHelper;
 import org.omg.CosNaming.NamingContextPackage.CannotProceed;
 import org.omg.CosNaming.NamingContextPackage.NotFound;
-import sample.corba.Hello;
-import sample.corba.HelloHelper;
+import sample.model.corba.Hello;
+import sample.model.corba.HelloHelper;
 
 public class CorbaClient {
     private final ORB orb;
     private final NamingContextExt ncRef;
+
     public CorbaClient() {
         try {
             // TODO 外出ししたい
-            String[] args = new String[] {
+            String[] args = new String[]{
                     "-ORBInitialPort", "1050",
                     "-CodeSetEncoding", "UTF8"
             };
