@@ -28,3 +28,9 @@ Embedded Tomcatを使用しているため、mainクラスを実行すればサ�
 
 ### IDL関係
 <https://software.fujitsu.com/jp/manual/manualfiles/M050000/B1WN4971/01/index.htm>
+
+### jax-rs関係
+
+実際に使用するかは分かりませんが、参考にした資料についてとなります。
+
+<https://cxf.apache.org/docs/jaxrs-services-configuration.html#JAXRSServicesConfiguration-WithCXFNonSpringJaxrsServlet>

@@ -5,6 +5,11 @@ plugins {
 group = 'org.example'
 version = '1.0-SNAPSHOT'
 
+java {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
 repositories {
     mavenCentral()
 }
@@ -21,6 +26,7 @@ dependencies {
     implementation 'org.apache.cxf:cxf-rt-frontend-jaxrs:3.1.12'
     // JSON変換用
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.19.0'
+    implementation 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.18.1'
     // HTTPクライアント
     implementation 'org.apache.httpcomponents:httpclient:4.5.13'
     testImplementation platform('org.junit:junit-bom:5.10.0')

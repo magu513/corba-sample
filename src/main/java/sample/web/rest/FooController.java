@@ -2,9 +2,11 @@ package sample.web.rest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
-// 時間がないので、REST APIのjax-rsでの実装はあきらめる
 @Path("/foo")
+@Produces(MediaType.APPLICATION_JSON)
 public class FooController {
     @GET
     public DataFoo get() {
