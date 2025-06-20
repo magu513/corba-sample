@@ -5,7 +5,7 @@ import sample.model.corba.Hello;
 import sample.model.corba.HelloPackage.Argument;
 import sample.model.servlet.HelloRequest;
 import sample.model.servlet.HelloResponse;
-import sample.util.JSONUtil;
+import sample.util.Util;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -35,7 +35,7 @@ public class ToCorbaServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String body = req.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
-        HelloRequest helloRequest = JSONUtil.toObject(body, HelloRequest.class);
+        HelloRequest helloRequest = Util.toObject(body, HelloRequest.class);
         HelloResponse helloResponse = new HelloResponse();
         Hello callable = getCallable();
         Argument arg = new Argument();
@@ -47,7 +47,7 @@ public class ToCorbaServlet extends HttpServlet {
         // 今回はサボって結果に適当な文字列を追加した。
         helloResponse.setResult(result + "Welcome CORBA Sample.");
         resp.setContentType("application/json;charset=UTF-8");
-        resp.getWriter().print(JSONUtil.toJson(helloResponse));
+        resp.getWriter().print(Util.toJson(helloResponse));
     }
 
     private Hello getCallable() {

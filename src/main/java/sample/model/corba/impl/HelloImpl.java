@@ -10,7 +10,7 @@ import org.apache.http.util.EntityUtils;
 import org.omg.CORBA.ORB;
 import sample.model.corba.HelloPOA;
 import sample.model.corba.HelloPackage.Argument;
-import sample.util.JSONUtil;
+import sample.util.Util;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -37,7 +37,7 @@ public class HelloImpl extends HelloPOA {
         Map<String, String> requestBody = new HashMap<>();
         requestBody.put("name", arg.name);
         try {
-            StringEntity entity = new StringEntity(JSONUtil.toJson(requestBody));
+            StringEntity entity = new StringEntity(Util.toJson(requestBody));
             httpPost.setEntity(entity);
             HttpResponse response = httpClient.execute(httpPost);
             String result = EntityUtils.toString(response.getEntity());
